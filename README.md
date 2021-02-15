@@ -7,7 +7,7 @@ Simple port of budgie-specific CSS for the default Ubuntu Yaru's theme
 <p>2-)Log out and log in. Done! </p> 
 
 ![ScreenShot](print.png)
-<br>
+<br></br>
 ![ScreemShot](print2.png)
 
 <p>It's heavily based on https://github.com/darkomarko42/Marwaita-ubuntu so I followed the GNU GPL3 license (as stated on .CSS file).</p>
