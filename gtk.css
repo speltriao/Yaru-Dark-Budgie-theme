@@ -1,0 +1,361 @@
+/*Based on https://github.com/darkomarko42/Marwaita-ubuntu */
+/*    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>5.*/
+
+/*CSS*/
+
+
+
+/**********
+ * Colors *
+ **********/
+
+@define-color menu_color @base_color;
+@define-color button_color @base_color;
+@define-color alt_button @button_color;
+@define-color notibg @base_color;
+@define-color widget_color alpha(@fg_color,0.2);
+@define-color invertbg alpha(black,0.08);
+@define-color panel_bg shade(#1D1D1D,1.0);
+@define-color panel_fg white;
+@define-color scrollbar_color mix(@bg_color,@fg_color,0.5);
+
+@define-color colorPrimary shade(@sidebar_color,0.9);
+@define-color colorPrimaryBackdrop shade(@colorPrimary,1.2);
+@define-color textColorPrimary @fg_color;
+@define-color textColorPrimaryShadow alpha(white,0.5);
+@define-color sidebar_color shade(@bg_color,0.9);
+
+@define-color theme_fg_color @fg_color;
+@define-color theme_text_color @fg_color;
+@define-color theme_bg_color @bg_color;
+@define-color theme_base_color @base_color;
+@define-color theme_unfocused_fg_color @fg_color;
+@define-color theme_unfocused_text_color @fg_color;
+@define-color theme_unfocused_bg_color @bg_color;
+@define-color theme_unfocused_base_color @base_color;
+
+@define-color fg_color alpha(white,0.8);
+@define-color text_color @fg_color;
+@define-color bg_color shade(@base_color,0.8);
+@define-color base_color #353535;
+@define-color text_view_bg @base_color;
+@define-color content_view_bg @base_color;
+
+@define-color insensitive_bg_color alpha(@widget_color,0.2);
+@define-color insensitive_fg_color alpha(@fg_color,0.5);
+@define-color insensitive_base_color @base_color;
+@define-color unfocused_insensitive_color @insensitive_fg_color;
+
+@define-color highlight alpha(white,0.5);
+@define-color button_shadow alpha(@shadow,0.2);
+@define-color menu_shadow alpha(@shadow,0.5);
+@define-color shadow alpha(black,0.5);
+@define-color borders shade(@bg_color,0.6);
+@define-color border_color @borders;
+@define-color unfocused_borders @borders;
+@define-color borders_t @borders;
+
+@define-color deco alpha(black,0.5);
+
+@define-color selected_bg_color #E95420; /*Acho que é esse*/
+@define-color selected_fg_color #000;
+@define-color theme_selected_bg_color @selected_bg_color;
+@define-color theme_selected_fg_color @selected_fg_color;
+@define-color theme_unfocused_selected_bg_color @selected_bg_color;
+@define-color theme_unfocused_selected_fg_color @selected_fg_color;
+
+@define-color warning_color #FFD600;
+@define-color error_color #ff3333;
+@define-color success_color #21A642;
+
+@define-color placeholder_text_color #A8A8A8;
+@define-color link_color @selected_bg_color;
+
+@define-color budgie_tasklist_indicator_color @panel_fg;
+@define-color budgie_tasklist_indicator_color_active @selected_bg_color;
+@define-color budgie_tasklist_indicator_color_active_window @panel_fg;
+@define-color budgie_tasklist_indicator_color_attention @error_color;
+
+@define-color tab_base_color @base_color;
+@define-color metacity_theme @colorPrimary;
+@define-color wm_title @textColorPrimary;
+@define-color wm_unfocused_title alpha(@textColorPrimary,0.5);
+@define-color m_button_hover alpha(@textColorPrimary,0.1);
+@define-color m_button_active	alpha(@textColorPrimary,0.2);
+@define-color m_border	@borders;
+@define-color colorAccent @selected_bg_color;
+@define-color accent_color @selected_bg_color;
+@define-color menu_separator @borders;
+
+/* Black */
+@define-color BLACK_100 #666;
+@define-color BLACK_300 #4d4d4d;
+@define-color BLACK_500 #333;
+@define-color BLACK_700 #1a1a1a;
+@define-color BLACK_900 #000;
+
+
+.budgie-popover button.flat:hover{	background-color: alpha(@fg_color,0.1);	color: @fg_color;}
+
+
+.rounded decoration,
+.background.csd.unified,
+.budgie-run-dialog,
+.budgie-run-dialog list,
+.budgie-session-dialog decoration,
+.budgie-polkit-dialog decoration,
+.budgie-run-dialog decoration,
+.budgie-session-dialog.background.csd,
+.budgie-polkit-dialog.background.csd,
+.budgie-run-dialog.background.csd{ border-radius: 8.0px;}
+
+.budgie-popover {
+	border-radius: 8.0px;
+	background-color: @menu_color;
+	border: none;
+	color: @fg_color;
+	box-shadow: 0 1px 2px @menu_shadow, 0 0 0 1px @borders_t;
+}
+
+/**********
+ * Budgie *
+ **********/
+
+.budgie-settings-window buttonbox.inline-toolbar { border-bottom: 1px solid @borders; background-color: @sidebar_color; padding: 6px;}
+
+.budgie-container {background-color: transparent;}
+
+.bottom .shadow-block {
+	background-color: transparent;
+	background-image: linear-gradient(to top, @button_shadow, transparent); 
+	border-bottom: 1px solid @deco; }
+	.top .shadow-block {
+	background-color: transparent;
+	background-image: linear-gradient(to bottom, @button_shadow, transparent);
+	border-top: 1px solid @deco; }
+	.left .shadow-block {
+	background-color: transparent;
+	background-image: linear-gradient(to right, @button_shadow, transparent);
+	border-left: 1px solid @deco; }
+	.right .shadow-block {
+	background-color: transparent;
+	background-image: linear-gradient(to left, @button_shadow, transparent);
+	border-right: 1px solid @deco; }
+
+/* Budgie Panel */
+.budgie-panel label, .budgie-panel image{color: @panel_fg;}
+
+.budgie-panel{background-color: alpha(@panel_bg,1.0);	transition: all 600ms ease-out; }
+
+.budgie-panel.transparent {background-color: transparent; box-shadow: none; text-shadow: 1px 1px alpha(@panel_bg,0.5); -gtk-icon-shadow: 1px 1px alpha(@panel_bg,0.5); }
+
+.bottom .budgie-panel.transparent {box-shadow: inset 0 -2px @panel_bg;}
+.top .budgie-panel.transparent {box-shadow: inset 0 2px @panel_bg;}
+.left .budgie-panel.transparent{box-shadow: inset 2px 0 @panel_bg;}
+.right .budgie-panel.transparent{box-shadow: inset -2px 0 @panel_bg;}
+
+.budgie-panel separator {border-color: @borders_t;}
+
+.budgie-panel .alert {color: @error_color;}
+
+.budgie-panel image{padding: 0 8px;}
+.budgie-panel .end-region image{padding:0;}
+.budgie-panel label{padding: 0 4px;font-weight: bold;}
+.budgie-panel button.budgie-menu-launcher {padding: 0; margin: 0; }
+.budgie-panel button.budgie-menu-launcher image {padding: 0 15px 0 18px; margin: -10px; }
+
+.budgie-panel .end-region{
+	margin: 4px;
+	border-radius: 4.0px;
+	background-image: none;
+	box-shadow: none;
+	background-color: alpha(black,0.9);
+	text-shadow: none;
+	-gtk-icon-shadow: none;
+	}
+
+.budgie-panel button.flat{background: none; padding: 0; margin: 0;}
+	
+button.flat.launcher image{-gtk-icon-shadow: 0 1px 2px alpha(black,0.5);}
+
+.bottom .dock-mode{
+border-radius:	8.0px	8.0px 0 0;
+box-shadow: inset 0 1px mix(@panel_bg,@panel_fg,0.3), inset 1px 0 mix(@panel_bg,@panel_fg,0.3), inset -1px 0 mix(@panel_bg,@panel_fg,0.3);
+}
+.top .dock-mode{
+border-radius: 0 0	8.0px	8.0px;
+box-shadow: inset 0 -1px mix(@panel_bg,@panel_fg,0.3), inset 1px 0 mix(@panel_bg,@panel_fg,0.3), inset -1px 0 mix(@panel_bg,@panel_fg,0.3);
+}
+.left .dock-mode{
+border-radius: 0	8.0px	8.0px 0;
+box-shadow: inset 0 -1px mix(@panel_bg,@panel_fg,0.3), inset 0 1px mix(@panel_bg,@panel_fg,0.3), inset -1px 0 mix(@panel_bg,@panel_fg,0.3);
+}
+.right .dock-mode{
+border-radius:	8.0px 0 0	8.0px;
+box-shadow: inset 0 -1px mix(@panel_bg,@panel_fg,0.3), inset 0 1px mix(@panel_bg,@panel_fg,0.3), inset 1px 0 mix(@panel_bg,@panel_fg,0.3);
+}
+
+.budgie-panel button:not(.launcher):not(.flat){background-color: shade(@panel_bg,1.5); color: @panel_fg; margin: 2px;}
+
+.budgie-panel button.launcher.flat,.budgie-panel button.budgie-menu-launcher{background: none; border: none; border-radius: 0; color: @panel_fg; transition: none;}
+
+.budgie-panel button.launcher.flat:hover{background-color: alpha(@panel_fg,0.1);}
+.budgie-panel button.launcher.flat:active{background-color: alpha(@panel_fg,0.25);}
+.budgie-panel button.launcher.flat:checked{background-color: alpha(@panel_fg,0.2);}
+
+/* BUDGIE POPOVERS */
+
+.budgie-popover .sidebar row{ padding: 12px 0;}
+
+.budgie-popover .container {padding: 6px;}
+
+.budgie-popover.user-menu .container,.budgie-menu .container  {padding: 0px;}
+
+.budgie-popover.sound-popover .container {padding: 0;}
+
+.budgie-popover border {border: none;}
+
+.budgie-popover row {padding: 0;}
+
+.budgie-popover row:hover {box-shadow: none;}
+
+.budgie-popover button.flat {background-image: none; animation: none; transition: none;}
+
+.budgie-popover button.flat:not(.image-button) {
+	padding: 6px 15px;
+	font-weight: normal;
+	border-radius: 0;
+	margin: 0 -2px;
+}
+
+.budgie-popover .sidebar{ border: none; padding: 6px 0;}
+
+.budgie-menu .categories button.flat{padding: 8px 0; margin: 2px 4px; border-radius: 9px; border: none;}
+
+.budgie-menu .categories button.flat:checked{background-color: alpha(currentcolor,0.2);}
+
+.budgie-popover separator{ margin: 6px 0;}
+
+.budgie-popover.budgie-menu entry.search {font-size: 120%; margin: 6px;}
+
+.budgie-menu .frame{background-color: transparent; border-left: 1px solid @borders_t;}
+.budgie-menu .sidebar .frame{background-color: transparent; border-right: 0px solid @borders_t;}
+.budgie-menu .sidebar .frame{background-color: transparent; border-left: 0px solid @borders_t;}
+
+.budgie-popover row.activatable {background-color: transparent; background-image: none;}
+.budgie-popover row.activatable:selected,.budgie-popover .sidebar .frame row.activatable:hover {background: none; box-shadow: inset 0 0 0 9999px alpha(@fg_color,0.1); color: inherit;}
+
+.budgie-popover .sidebar .frame row.activatable:selected{box-shadow: inset 0 0 0 9999px alpha(@fg_color,0.2);}
+
+.budgie-popover scrolledwindow list,.budgie-popover .sidebar .frame{background-color: transparent;}
+
+.budgie-popover .sidebar .frame row{border-radius: 9999px; margin: 2px 6px 2px 0;}
+
+/* Raven */
+
+.raven-background	stackswitcher.linked { padding: 12px;}
+
+.raven .raven-header.top	stackswitcher.linked > button {	font-weight: bold;	padding: 6px 12px;}
+
+.raven{background-color: @bg_color; box-shadow: none; padding: 8px;}
+
+frame.raven-frame > border {border: none;}
+
+.raven .raven-background {
+	border-style: none;
+	border-width: 1px;
+	border-color: @borders;
+	border-radius: 8.0px;
+	box-shadow:inset 0 0 0 1px @borders;
+	background-color: @base_color;
+	}
+
+.raven button.flat{border-radius: 9999px; padding: 6px;}
+
+calendar.raven-calendar {border-radius: 8.0px; border-color: @borders; 	border-style: solid ;}
+
+.raven-mpris {background-color: alpha(@panel_bg,0.6); color: @panel_fg; margin: 1px; border-radius: 0 0 8.0px 8.0px;} 
+.raven-mpris button{ color: @panel_fg;}
+
+.raven .powerstrip{box-shadow: inset 0 0px @borders_t;}
+.raven .powerstrip button{padding: 8px;}
+.raven > box {margin-bottom: -11px;}
+
+.drop-shadow flowbox flowboxchild:selected{background-color: alpha(@fg_color,0.2);}
+
+.drop-shadow {
+	margin: 5px 9px;
+	padding: 4px;
+	border-radius:	8.0px;
+	box-shadow: 0 1px 2px @shadow, 0 0 0 1px @deco;
+	background-color: @notibg;
+	border: none;
+}
+
+.raven-notifications-view  list box.vertical row{
+	margin: 8px 0px;
+	padding: 4px 8px;
+	border-radius: 8.0px;
+	box-shadow: 0 1px 2px @shadow, 0 0 0 1px @deco;
+	background-color: @notibg;
+	border: none;
+}
+
+.raven list box.vertical row button.flat{ margin: 0 -6px;}
+.raven list box.vertical { margin: 0px; margin-left: -2px; margin-right: 3px;}
+
+.raven-notifications-view .raven-background,
+.raven-notifications-view .raven-background list,
+window box.vertical scrolledwindow .frame .raven-background stack list
+{ background-color: transparent; background-image: none; border: none; box-shadow: none;}
+
+.raven-notifications-view  row.activatable:selected,
+.raven-notifications-view  row.activatable:hover { background-image: none; color: inherit;}
+
+/* Budgie Dialogs */
+
+.budgie-notification-window, .budgie-osd-window, .budgie-switcher-window {	background-color: transparent;}
+
+.budgie-notification .notification-title, .budgie-switcher .notification-title,.budgie-osd .budgie-osd-text,.budgie-session-dialog label:not(:last-child),
+.budgie-session-dialog .dialog-title {	font-size: 120%;}
+
+.budgie-session-dialog, .budgie-polkit-dialog, .budgie-run-dialog {
+	border-radius:	8.0px;
+	background-color: @bg_color;
+	box-shadow: none;
+	-gtk-icon-style: regular;
+}
+
+.budgie-session-dialog .linked.horizontal > button , .budgie-polkit-dialog .linked.horizontal > button { margin: 8px 0;}
+
+.budgie-session-dialog .linked.horizontal > button:first-child,.budgie-polkit-dialog .linked.horizontal > button:first-child {	margin-left: 8px;}
+
+.budgie-session-dialog .linked.horizontal > button:last-child,.budgie-polkit-dialog .linked.horizontal > button:last-child {	margin-right: 8px;}
+
+.budgie-polkit-dialog .message {	color: @fg_color;}
+
+.budgie-polkit-dialog .failure {	color: @error_color;}
+
+.budgie-run-dialog entry.search {
+	font-size: 120%;
+	padding: 8px 12px;
+	border-image: none;
+	box-shadow: none;
+	border-radius:	4.0px;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+/*EOF*/
+
