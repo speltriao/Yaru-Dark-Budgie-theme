@@ -1,4 +1,4 @@
-# Yaru-Dark-Budgie
+# Yaru-Budgie
 Simple port of budgie-specific CSS for the default Ubuntu Yaru's theme
 
 <p>How to use it: 
