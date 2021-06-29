@@ -7,7 +7,7 @@ Simple port of budgie-specific CSS for the default Ubuntu Yaru's theme
 <p><b>2-)</b> Select the Yaru theme from your budgie-settings </p> 
 <p><b>3-)</b> Log out and log in. Done! </p> 
 <p><b>Recomended icons:</b> Papirus-Dark with Yaru folders (see: https://github.com/PapirusDevelopmentTeam/papirus-folders ).
-<p>--><i>The default Yaru icon theme does NOT support Budgie.</i>--<
+<p>--><i>The default Yaru icon theme does NOT support Budgie </i>--<
 
 ![ScreenShot](print.png)
 <br></br>
